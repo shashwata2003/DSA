@@ -11,7 +11,8 @@ the left child and the right child
 A node is a leaf node if both left and right child nodes of it are NULL.
 
 Solution:
-Here we are going to terverse the entire tree using any one of the treversing method. if the right and left of the 
+Here we are going to terverse the entire tree using any one of the treversing 
+method. if the right and left of the 
 root is null hence it is a leaf node. increament the count.
  */
 

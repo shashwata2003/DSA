@@ -4,13 +4,15 @@
 using namespace std;
 /* 
 Sum Tree:
-Given a binary, we need to tell weather the sum of left subtree and right sun tree for any node is equal to the 
+Given a binary, we need to tell weather the sum of left subtree and right sun tree for any node is equal to 
+the 
 Node x. like
 3 2 1 : 2+1 = 3 root node.
 
 Apporach:
 we are going to use the recursion with pair method. 
-we are going to use a bool and int val : bool will tell weather the folling node is sum tree or not and store the
+we are going to use a bool and int val : bool will tell weather the folling node is sum tree or 
+not and store the
 val if the sum.
 
 Time complexity : O(n)
@@ -48,6 +50,7 @@ Node* buildTree(Node* root){
 pair<bool,int> sumtreefast(Node* root){
     if(root == NULL){
         pair<bool,int> p = make_pair(true, 0);
+        return p;
     }
     if(root->left == NULL && root->right == NULL){
         pair<bool,int> p = make_pair(true, 0);

@@ -57,6 +57,20 @@ Node* buildBSTtree(Node* root) {
     return root;
 }
 
+Node* findLCA1(Node* root , int p , int q){
+   while (root != NULL)
+   {
+    if(root->data > p && root->data > q){
+        root = root -> left;
+    }
+    if(root->data < p && root->data < q){
+        root = root -> left;
+    }else{
+        return root;
+    }
+   }
+}
+
 Node* findLCA(Node* root , int p , int q){
     if(root == NULL){
         return NULL;
@@ -73,7 +87,7 @@ Node* findLCA(Node* root , int p , int q){
 int main(){
     Node* root = NULL;
     root = buildBSTtree(root);
-    Node* ans = findLCA(root, 3,5);
+    Node* ans = findLCA1(root, 3,5);
     cout<<ans->data;
 return 0;
 }

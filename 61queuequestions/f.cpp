@@ -34,7 +34,88 @@ Using Stack:
 queue and push at the end of the queue.
 ** multiple stack push are done to make the elements in the perfect order 
  */
+
+void interleave1(queue<int> &q){
+    int size = q.size();
+    int mid = size/2;
+    queue<int> q1;
+    for (int i = 0; i < mid; i++)
+    {
+        int a = q.front();
+        q.pop();
+        q1.push(a);
+    }
+    while (!q1.empty()) {
+        int f = q1.front();
+        q1.pop();
+        q.push(f);
+
+        if (!q.empty()) {
+            int l = q.front();
+            q.pop();
+            q.push(l);
+        }
+    }
+}
+
+void interLeaveQueue(queue<int>& q)
+{
+    if (q.size() % 2 != 0) {
+        cout << "Input even number of integers." << endl;
+        return;
+    }
+
+    stack<int> s;
+    int halfSize = q.size() / 2;
+
+    for (int i = 0; i < halfSize; i++) {
+        s.push(q.front());
+        q.pop();
+    }
+
+    while (!s.empty()) {
+        q.push(s.top());
+        s.pop();
+    }
+
+    for (int i = 0; i < halfSize; i++) {
+        q.push(q.front());
+        q.pop();
+    }
+
+    for (int i = 0; i < halfSize; i++) {
+        s.push(q.front());
+        q.pop();
+    }
+
+    while (!s.empty()) {
+        q.push(s.top());
+        s.pop();
+        q.push(q.front());
+        q.pop();
+    }
+}
+
 int main(){
+    queue<int> q;
+    q.push(11);
+    q.push(12);
+    q.push(13);
+    q.push(14);
+    q.push(15);
+    q.push(16);
+    q.push(17);
+    q.push(18);
+    q.push(19);
+    q.push(20);
+    interleave1(q);
+    int n = q.size();
+    for (int i = 0; i < n; i++)
+    {
+        cout<<q.front()<<" ";
+        q.pop();
+    }
+    
 
 return 0;
 }

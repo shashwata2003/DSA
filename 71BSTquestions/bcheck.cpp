@@ -18,6 +18,8 @@ Here first we will do a inorder traversal of the BST as we know the inorder trav
 a sorted array as the ans.
 we will store that in the vector<node*> and we will point the left of each node to null and the right to the
 next node in the vector
+or 
+we can use vector<int> and use teh val and create node of each val in the vector.
  */
 
 class Node {
@@ -62,7 +64,7 @@ Node* flattenbst(Node* root){
     int n = in.size();
     Node* newroot =  new Node(in[0]);
     Node* curr = newroot;
-    for (int i = 0; i < n; i++) {
+    for (int i = 1; i < n; i++) {
         Node* temp = new Node(in[i]);
         curr->left = NULL;
         curr->right = temp;

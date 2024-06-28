@@ -59,7 +59,7 @@ string firstnonrepeatingele(string s){
             if(count[q.front()]>1){
                 q.pop();
             }else{
-                ans.push_back(ch);
+                ans.push_back(q.front());
                 break;
             }
         }
@@ -73,7 +73,7 @@ string firstnonrepeatingele(string s){
 }
 
 int main(){
-    string s = "zz";
+    string s = "aabc";
     string ans = firstnonrepeatingele(s);
     cout<<ans<<endl;
 return 0;

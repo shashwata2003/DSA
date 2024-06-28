@@ -41,8 +41,6 @@ space: 0(k)
 
 // C++ program to find sum of all minimum and maximum
 // elements Of Sub-array Size k.
-#include<bits/stdc++.h>
-using namespace std;
 
 // Returns sum of min and max element of all subarrays
 // of size k
