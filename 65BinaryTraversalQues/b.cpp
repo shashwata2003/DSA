@@ -25,6 +25,8 @@ following are the conditions:
 
 TS: O(n)
 SP: O(height)
+
+Always do a dry run to understand the sol.
  */
 
 class Node{

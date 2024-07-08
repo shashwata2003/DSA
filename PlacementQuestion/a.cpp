@@ -2,7 +2,10 @@
 #include <bits/stdc++.h> 
 using namespace std; 
 
-/*Given an array of n-integers. The array may contain repetitive elements but the highest frequency of any element must not exceed two. You have to make two subsets such that the difference of the sum of their elements is maximum and both of them jointly contain all elements of the given array along with the most important condition, no subset should contain repetitive elements. 
+/*Given an array of n-integers. The array may contain repetitive elements but the highest frequency 
+of any element must not exceed two. You have to make two subsets such that the difference of the sum 
+of their elements is maximum and both of them jointly contain all elements of the given array along 
+with the most important condition, no subset should contain repetitive elements. 
 
 Examples: 
 

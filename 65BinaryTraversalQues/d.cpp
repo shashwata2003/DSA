@@ -68,7 +68,9 @@ Node* solve(Node* root, int &k, int n){
     
     // Now if any one of the subtree has the node value we will start counting back aby decrementing the val of k
     if(left != NULL && right == NULL ){
+        // left subtree has the node 
         k--;
+        
         // also sometimes the k can go in -ve val.
         if(k<=0){
             // This is done to lock the value of k , such that we cannot have any more iterations.
@@ -80,6 +82,7 @@ Node* solve(Node* root, int &k, int n){
     }
     else if(left == NULL && right != NULL ){
         k--;
+        // Right subtree has the node 
         if(k<=0){
             k = 9999;
             return root;

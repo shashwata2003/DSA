@@ -60,7 +60,7 @@ vector<int> zigzagtraversal(Node* root){
     // Push the first node
     q.push(root);
     // flag to desice the flow of the traversal weather RTL or LtoR
-    bool righttoleft = true;
+    bool righttoleft = false;
     while (!q.empty())
     {
         int size = q.size(); 

@@ -16,6 +16,10 @@ hence we will use the map function btw level and node.
 2. Recursive Optimized:
 here we push that data in the ans when we reach a new level.
 and we check that by checking if the size of the ans  is === to the current level.
+Here, we check if the current level (lvl) is equal to the size of the ans vector.
+This condition is true only for the first node encountered at each level during the traversal.
+If the condition is true, it means that the current node is the first node at this level that we are 
+encountering from the right side view, so we add its data to the ans vector.
 
  */
 
@@ -54,7 +58,7 @@ void solve(Node* root, vector<int>&ans , int level){
     if(root==NULL){
         return;
     }
-
+    //
     if(level == ans.size()){
         ans.push_back(root->data);
     }

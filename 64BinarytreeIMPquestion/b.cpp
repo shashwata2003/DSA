@@ -53,11 +53,10 @@ void lefttraversal(Node* root , vector<int> &ans){
 
     ans.push_back(root->data);
     // run the left traversal of the left and right child of the root node.
-    if(root->left){
-        lefttraversal(root,ans);
-    }
-    else{
-        lefttraversal(root,ans);
+    if (root->left) {
+        lefttraversal(root->left, ans);
+    } else if (root->right) {
+        lefttraversal(root->right, ans);
     }
 }
 
@@ -83,11 +82,11 @@ void righttraveral(Node* root, vector<int> &ans){
         return;
     }
     if(root->right){
-        righttraveral(root->left,ans);
-    }
-    else 
-    {
         righttraveral(root->right,ans);
+    }
+    else if(root->left)
+    {
+        righttraveral(root->left,ans);
     }
     ans.push_back(root->data);
     

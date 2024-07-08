@@ -3,17 +3,17 @@
 #include <array>
 using namespace std;
 /* 
-Top view of a binary tree:
-Given a binary tree find the top veiw of the tree. 
+Bottom veiw:
+Given a binary tree print the element which can be veiwed from the buttom angle.
 
-SOl:
-Here we are going to use the same maping technique we used in the vertical treversal.
-But the only difference will be for every horizontal distance we will have only one.
-
-We cannot directly print the left and right subtree as that will start form the root and move down, but we want 
-start from the leaf and move towards the root.
+sol:
+Here we are going to do the same as the top veiw the only difference will be that we will update the val of 
+each HD till end and only take the last val of the node.
+So only here we will check the if condition if it is empty or not we will just update the val in the nodes 
+till the end and consider the last val.
 
  */
+
 
 class Node
 {
@@ -45,7 +45,7 @@ Node *buildTree(Node *root)
     return root;
 }
 
-vector<int> topview(Node* root){
+vector<int> buttomview(Node* root){
     vector<int> ans;
     if(root == NULL){
         return ans;
@@ -61,11 +61,11 @@ vector<int> topview(Node* root){
         q.pop();
         int hd = front.second;
         Node* frontNode = front.first;
-        // this tries to find any val stored in hd position in the map, if it is empty it return the end val of the
-        //map this a property of the map.
-        if(nodes.find(hd) == nodes.end()){
+        // no need to check weather the hd spot is empty or not, just update it until the last instance and 
+        // here we constantly update the val in the map till the end
+        // use the last calculated val.
             nodes[hd] = frontNode->data;
-        }
+        
         if(frontNode -> left){
             q.push(make_pair(frontNode->left,hd-1));
         }
@@ -84,12 +84,10 @@ vector<int> topview(Node* root){
 int main(){
     Node* root = NULL;
     root = buildTree(root);
-    vector<int> ans = topview(root);
+    vector<int> ans = buttomview(root);
     for (int i = 0; i < ans.size(); i++)
     {
         cout<<ans[i]<<" ";
     }
-    
-
 return 0;
 }
