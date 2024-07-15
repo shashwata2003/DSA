@@ -87,8 +87,8 @@ vector<int> topologicalSort(vector<vector<int>> &edges, int v, int e)  {
 }
 
 int main(){
-    vector<vector<int>> arr ={{0,1},{0,2}};
-    int v = 3, e = 2;
+    vector<vector<int>> arr ={{1,2},{2,3},{4,1},{4,2},{3,4}};
+    int v = 4, e =5;
     vector<int> ans = topologicalSort(arr,v,e);
     for (int i = 0; i < ans.size(); i++)
     {

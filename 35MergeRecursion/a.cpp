@@ -11,7 +11,7 @@ void merge(int *arr,int s, int e){
     int len1 = mid-s+1;
     int len2 = e-mid;
     int *first  = new int(len1);
-    int *second = new int(len2);f
+    int *second = new int(len2);
     int k = s;
     for (int i = 0; i < len1; i++)
     {

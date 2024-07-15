@@ -4,9 +4,9 @@
 using namespace std;
 /* 
 In a sorted array find the Pivot element:
-Given a array like [7,9,1,2,3] (this is a roated array)if we plot this on a grph we will find that there will be a a large down slop
-between 9 and 1 which is called a pivot. Hence the pivot element are 9 and 1. In here we will conside 1 as the
-pivot element.
+Given a array like [7,9,1,2,3] (this is a roated array)if we plot this on a grph we will find that there will be a a
+large down slop between 9 and 1 which is called a pivot. Hence the pivot element are 9 and 1. In here we will 
+conside 1 as the pivot element.
 Sol: As we are going to use binary search we need to first find the mid. Now will the value of mid we have 2
 conditions.
 1. if arr[mid]>=arr[0] this is on the climbing slope hence we need to move the start pointer. S=mid+1;

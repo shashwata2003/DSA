@@ -17,17 +17,17 @@ int main(){
 vector<int> arr={1,0,1,0,0,1};
 int n = arr.size();
 int i = 0, j = n-1;
-while (i<j)
+while (i<=j)
 {
-    while (arr[i] == 0 && i<j)  
+    while (arr[i] == 0 && i<=j)  
     {
         i++;
     }
-    while (arr[j]==1&& i<j)
+    while (arr[j]==1&& i<=j)
     {
         j--;
     }
-    while (i<j)
+    while (i<=j)
     {
         swap(arr[i],arr[j]);
         i++;
