@@ -4,8 +4,8 @@
 using namespace std;
 /*
 Max sum of non adjacent nodes:
-Given a Binary tree we need to select a set of nodes which will give use the max sum. but the condition is that
-no two selected nodes should be connected to each other.
+Given a Binary tree we need to select a set of nodes which will give use the max sum. but the 
+condition is that no two selected nodes should be connected to each other.
 
 Solution:
 Apporach:
@@ -60,12 +60,15 @@ pair<int,int> solve(Node* root){
         pair<int,int> p = make_pair(0,0);
         return p;
     }
+     // creating left ans right subtree of teh current node 
     // checking the left and right subtree:
     pair<int,int> left = solve(root->left);
     pair<int,int> right = solve(root->right);
 
     pair<int,int> res;
     // including the current node
+    //first = including current
+    //second = exculding the current hence check only the left and rigth subtrees.
     res.first = root->data + left.second +right.second;
     res.second = max(left.first , left.second) + max(right.first,right.second);
 
