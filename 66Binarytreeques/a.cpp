@@ -30,19 +30,18 @@ class Node{
             }
 };
 
-int findpos(int in[],int elem, int n){
-    for (int i = 0; i < n; i++)
-    {
-        if(elem == in[i]){
-            return i;
+  int Findposition(int in[] ,int inorderStart , int inorderEnd , int element ,int  n){
+        for(int i = inorderStart ; i<=inorderEnd ;i++){
+            if(in[i]==element){
+                return i ; 
+            }
         }
+        return -1 ;
     }
-    return -1;
-    
-}
 
 //This function will map the index of inorder array with its val. hence we dont have to find the position
 // we can directly use a find function on the map;
+// This is giving TLA In GFG so use the find pos function:
 void createamap(map<int,int> &mp, int in[],int n){
     for (int i = 0; i < n; i++)
     {
@@ -63,7 +62,7 @@ Node* solve(int in[], int pre[],int n, int &preorderstart, int inorderstart, int
     // then finding the position of that root in the in order arr.
     // But Multiples calls of this fucntions increases the TS, hence we will use a map to map the index with the node
     // hence that we need to run only once and ts will be controlled
-    //old : int pos = findpos(elem,in,n);
+    //old : int pos = Findposition(elem,in,n);
     //new using a map.
     int pos = mp[elem];
 

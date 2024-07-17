@@ -121,7 +121,8 @@ int buringtree(Node* root, map<Node*,Node*> mp){
                 visited[mp[front]] = true;
             }
         }
-        // Incrementing the ans after each push
+        // Incrementing the ans after each push once because the fire will burn both child and the parent 
+        // in the same time of 1 sec
         if(flag == 1){
             ans++;
         }
