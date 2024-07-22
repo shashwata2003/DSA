@@ -9,6 +9,11 @@ https://www.geeksforgeeks.org/inorder-tree-traversal-without-recursion-and-witho
 TS: O(n)
 SP: O(1)
 */
+
+void morriseinorder(Node* root){
+    
+}
+
 int main(){
 
 return 0;

@@ -85,6 +85,7 @@ void flatten(Node* root){
             {
                 pred = pred->right;
             }
+            // this is done because we need to do a preorder traversal
             pred->right = curr->right;
             curr->right = curr->left;
             curr->left = NULL;

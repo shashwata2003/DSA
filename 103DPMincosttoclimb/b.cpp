@@ -35,9 +35,13 @@ Apporach 1: recursion
 This solution will give TLA, to save time we need to use memorization.
 
 apporach 2: add memorization to implement top down
+
+apporach 3: adding tabulation and reducing complexity:
+
+apporach 4:Optimizing space
  */
 
-//TS: 
+//TS: simple recursion 
 int solve(vector<int> cost, int n){
     if(n == 0){
         return cost[0];
@@ -48,6 +52,8 @@ int solve(vector<int> cost, int n){
     int ans = cost[n] + min(solve(cost,n-1),solve(cost,n-2));
 }
 
+// Apoorach 2: DP + recursion +  memorization
+//TS: O(n) SP: o(N)+O(n)
 int solveusingdp(vector<int> cost, int n,vector<int> &dp){
     if(n == 0){
         return cost[0];
@@ -63,6 +69,9 @@ int solveusingdp(vector<int> cost, int n,vector<int> &dp){
     return dp[n];
 }
 
+
+// APporach 3: using tabulatization
+//TS: O(n) SP: o(N)
 int dpusingtabulation(vector<int> cost, int n){
     vector<int> dp(n+1);
     // analysis the basecase:
@@ -76,12 +85,30 @@ int dpusingtabulation(vector<int> cost, int n){
     return min(dp[n-1],dp[n-2]);    
 }
 
+// Optimizing the Space complexitt:
+// SP: O(1)
+int spaceoptimized(vector<int> cost, int n){
+    int prev1 = cost[0];
+    int prev2 = cost[1];
+
+    for (int i = 2; i < n; i++)
+    {
+        int curr = cost[i] + min(prev1,prev2);
+        prev1 = prev2;
+        prev2 = curr;
+    }
+    return min(prev1,prev2);
+}
+
+
 int mincost(vector<int> cost){
     int n = cost.size();
     //usind DP:
     vector<int> dp(n+1,-1);
     // return min(solveusingdp(cost,n-1,dp),solveusingdp(cost,n-2,dp));
-    return dpusingtabulation(cost,n);
+    // return dpusingtabulation(cost,n);
+
+    return spaceoptimized(cost,n);
 }
 
 

@@ -1,19 +1,19 @@
-#include<iostream>
+#include <iostream>
 #include <bits/stdc++.h>
 #include <array>
 using namespace std;
-/* 
+/*
  Predecessor And Successor In BST
-You have been given a binary search tree of integers with ‘N’ nodes. You are also given 'KEY' which represents 
+You have been given a binary search tree of integers with ‘N’ nodes. You are also given 'KEY' which represents
 data of a node of this tree.
 Your task is to return the predecessor and successor of the given node in the BST.
 
 1. The predecessor of a node in BST is that node that will be visited just before the given node in the inorder
- traversal of the tree. If the given node is visited first in the inorder traversal, then its predecessor is 
+ traversal of the tree. If the given node is visited first in the inorder traversal, then its predecessor is
  NULL.
 
-2. The successor of a node in BST is that node that will be visited immediately after the given node in the 
-inorder traversal of the tree. If the given node is visited last in the inorder traversal, then its successor 
+2. The successor of a node in BST is that node that will be visited immediately after the given node in the
+inorder traversal of the tree. If the given node is visited last in the inorder traversal, then its successor
 is NULL.
 
 Sample Input 1:
@@ -24,14 +24,14 @@ Sample output 1:
 
 Solution:
 Apporach 1:
-Here we do a inorder traversal of the entire tree and store the output in an array, Now we wil traverse that 
-array to find the key val and print the successor and the predeccesor.
+Here we do a inorder traversal of the entire tree and store the output in an array, Now we wil traverse that
+array to find the key val and print the successor(key index -1 ) and the predeccesor(key index + 1).
 ts: o(n)
 sp: o(n) as we are going to use an array
 Apporach 2:
 Steps:
 1. Find the key val in the tree.
-2. the pred will be the max val of the left subtree 
+2. the pred will be the max val of the left subtree
 3. and succ will be the min val of the right subtree.
 
 
@@ -39,23 +39,26 @@ TS: O(n)
 SP: O(1)
  */
 
-
-class Node {
+class Node
+{
 public:
     int data;
     Node *left;
     Node *right;
-    Node(int d) {
+    Node(int d)
+    {
         this->data = d;
         this->left = NULL;
         this->right = NULL;
     }
 };
 
-Node* buildBSTtree(Node* root) {
+Node *buildBSTtree(Node *root)
+{
     int data;
     cin >> data;
-    if (data == -1) {
+    if (data == -1)
+    {
         return NULL;
     }
     root = new Node(data);
@@ -66,48 +69,97 @@ Node* buildBSTtree(Node* root) {
     return root;
 }
 
-pair<int,int> findpredandsucc(Node* root, int k){
-    // find the val of key:
-    Node* temp = root;
-    int pred = -1 , succ = -1;
-    // store the pred and the succ val as the temp
-    while (temp->data != k)
+int min_value(TreeNode *root)
+{
+
+    TreeNode *temp = root;
+
+    while (temp->left != NULL)
     {
-        if(temp->data > k){
-            pred = temp->data;
+
+        temp = temp->left;
+    }
+
+    return temp->data;
+}
+
+int max_value(TreeNode *root)
+{
+
+    TreeNode *temp = root;
+
+    while (temp->right != NULL)
+    {
+
+        temp = temp->right;
+    }
+
+    return temp->data;
+}
+
+pair<int, int> predecessorSuccessor(TreeNode *root, int key)
+
+{
+
+    // Write your code here.
+
+    pair<int, int> answer;
+
+    answer.first = -1;
+
+    answer.second = -1;
+
+    TreeNode *temp = root;
+
+    while (temp != NULL && temp->data != key)
+    {
+
+        if (temp->data > key)
+        {
+
+            answer.second = temp->data;
+
             temp = temp->left;
         }
-        else{
-            succ = temp->data;
+
+        else
+        {
+
+            answer.first = temp->data;
+
             temp = temp->right;
         }
     }
-    // after this temp have reached the key val
 
-    // follow the step 2 & 3
-    Node* lefttree = temp->left;
-    while (lefttree!=NULL)
+    if (temp == NULL)
     {
-        pred = lefttree->data;
-        lefttree=lefttree->right;
+
+        // Key not found in the tree
+
+        return answer;
     }
 
-    Node* righttree = temp->right;
-    while (righttree!=NULL)
+    if (temp->left != NULL)
     {
-        succ = righttree->data;
-        righttree = righttree->left;
+
+        answer.first = max_value(temp->left);
     }
 
-    return {pred, succ};
+    if (temp->right != NULL)
+    {
+
+        answer.second = min_value(temp->right);
+    }
+
+    return answer;
 }
 
-
-int main(){
-    Node * root = NULL;
+int main()
+{
+    Node *root = NULL;
     root = buildBSTtree(root);
-    pair<int,int> ans = findpredandsucc(root,10);
-    cout<<ans.first<<" "<<ans.second<<endl;
+    pair<int, int> ans = findpredandsucc(root, 5);
+    cout << ans.first << " " << ans.second << endl;
 
-return 0;
+    return 0;
 }

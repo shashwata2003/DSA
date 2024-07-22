@@ -3,7 +3,7 @@
 #include <array>
 using namespace std;
 /* 
- Flatten BST To A Sorted List
+Flatten BST To A Sorted List
 Given a BST convert that BST into a sorted linked list
 eg:
 2
@@ -49,28 +49,30 @@ Node* buildBSTtree(Node* root) {
     return root;
 }
 
-void inorder(Node* root, vector<int> &in){
-    if(root == NULL){
-        return;  // Fix to return immediately if root is NULL
+************************************************************/
+void inorderTraversal(TreeNode<int>* root, vector<int>& ino) {
+    if(root == NULL) {
+        return;
     }
-    inorder(root->left, in);
-    in.push_back(root->data);
-    inorder(root->right, in);
+    inorderTraversal(root->left, ino);
+    ino.push_back(root->data);
+    inorderTraversal(root->right, ino);
 }
 
-Node* flattenbst(Node* root){
-    vector<int> in;
-    inorder(root, in);
-    int n = in.size();
-    Node* newroot =  new Node(in[0]);
-    Node* curr = newroot;
-    for (int i = 1; i < n; i++) {
-        Node* temp = new Node(in[i]);
-        curr->left = NULL;
+TreeNode<int>* flatten(TreeNode<int>* root) {
+    vector<int> ino;
+    inorderTraversal(root, ino);
+    int n = ino.size();
+    TreeNode<int>* newRoot = new TreeNode<int>(ino[0]);
+    TreeNode<int>* curr = newRoot;
+    for(int i = 1; i < n; i++) {
+        TreeNode<int>* temp = new TreeNode<int>(ino[i]);
         curr->right = temp;
-        curr = temp;
+        curr->left = NULL;
+        curr = curr->right;
     }
-    return newroot;
+    
+    return newRoot;
 }
 
 // Helper function to print the flattened tree

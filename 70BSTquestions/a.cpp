@@ -5,6 +5,9 @@ using namespace std;
 /* Validate Subtree:
 Given a binary tree with N number of nodes, check if that input tree is Partial BST (Binary Search Tree) or
 not. If yes, return true, return false otherwise.
+
+Partial BST is also sorted in inorder traversal.
+
 Eg:
 Sample Input 1:
 2

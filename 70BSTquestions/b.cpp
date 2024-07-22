@@ -5,7 +5,7 @@ using namespace std;
 /* 
  Find K-th smallest Element in BST
 Given a binary search tree and an integer ‘K’. Your task is to find the ‘K-th’
- smallest element in the given BST( binary search tree).
+smallest element in the given BST( binary search tree).
 
 Draw the recursive tree for the ans.
 

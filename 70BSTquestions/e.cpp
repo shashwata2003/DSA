@@ -64,7 +64,7 @@ Node* findLCA1(Node* root , int p , int q){
         root = root -> left;
     }
     if(root->data < p && root->data < q){
-        root = root -> left;
+        root = root -> right;
     }else{
         return root;
     }

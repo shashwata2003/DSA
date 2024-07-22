@@ -63,8 +63,8 @@ int allocateBook(vector<int> arr,int n, int m){
 }
 
 int main(){
-    vector<int> arr = {10,20,30,40};
-    int m = 2;
+    vector<int> arr = {1,2,2,3,1};
+    int m = 3;
     int n = arr.size();
     cout<<allocateBook(arr,n,m);
 return 0;
