@@ -22,21 +22,33 @@ class heap
 };
 
 
-void heapifymin(vector<int> &arr, int n, int i) {
+void solve(vector<int> &arr, int n, int i){
     int smallest = i;
     int left = 2 * i + 1;
     int right = 2 * i + 2;
 
-    if (left < n && arr[left] < arr[smallest]) {
+    if(left < n && arr[left] < arr[smallest]){
         smallest = left;
     }
-    if (right < n && arr[right] < arr[smallest]) {
+    if(right < n && arr[right] < arr[smallest]){
         smallest = right;
     }
-    if (smallest != i) {
+    if(smallest != i){
         swap(arr[i], arr[smallest]);
-        heapifymin(arr, n, smallest);
+        solve(arr, n, smallest);
     }
+}
+
+vector<int> buildMinHeap(vector<int> &arr)
+{
+    int n = arr.size();
+    // Start from the last non-leaf node and move upwards
+    /*In the buildMinHeap function, we start from the last non-leaf node (n / 2 - 1) and move upwards to
+    the root (i = 0). This ensures that all nodes are properly heapified, building the heap bottom-up.*/
+    for(int i = n / 2 - 1; i >= 0; i--){
+        solve(arr, n, i);
+    }
+    return arr;
 }
 
 int main() {

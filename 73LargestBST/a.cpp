@@ -75,7 +75,9 @@ info solve(Node* root , int &maxsize){
     info right = solve(root->right, maxsize);
     // setting all value of the current node.
     info curr;
+    // The max will of the tree will come form the right side of the tree
     curr.max = max(root->data, right.max);
+    // and the min will come from thr left tree
     curr.min = min(root->data,left.min);
     curr.size = left.size +right.size+1;
     if(left.isBST && right.isBST && (root->data>left.max && root->data <right.min)){

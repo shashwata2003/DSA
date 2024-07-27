@@ -125,6 +125,7 @@ Node* mergeBST(Node* root1, Node* root2){
 // Apporach 2:
 // Function to convert bst to
 // a doubly linked list
+//right is the next and left is the prev element
 void bstTodll(Node* root, Node*& head)
 {
     // if root is NULL

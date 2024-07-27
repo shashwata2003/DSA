@@ -26,18 +26,22 @@ Expected Auxiliary Space: O(n + m)
 
 
 void heapify(vector<int> &ans, int i, int n) {
-    int largest = i;
+    int largest = i; // largest index is the mid at the begining which is the root
     int left = 2 * i + 1;
     int right = 2 * i + 2;
     if (left < n && ans[left] > ans[largest]) {
+        // If the left index val is greater than the parent hence we need to swap hence change largest val
         largest = left;
     }
     if (right < n && ans[right] > ans[largest]) {
+        // same goes for the right pointer
         largest = right;
     }
 
     if (largest != i) {
+        // If largest is changes then swap
         swap(ans[largest], ans[i]);
+        // send the current largest as the new index:
         heapify(ans, largest, n);
     }
 }

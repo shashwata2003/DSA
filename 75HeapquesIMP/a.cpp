@@ -34,13 +34,17 @@ Sp: O(1)
  */
 
 int ksmallest(vector<int> arr, int k, int l, int r){
+     // Check if k is within the valid range
+    if (k > (r - l + 1) || k <= 0) {
+        return -1; // or some appropriate error value
+    }
     priority_queue<int> pq;
-    for (int i = 0; i < k; i++)
+    for (int i = l; i < l+k; i++)
     {
         pq.push(arr[i]);
     }
 
-    for (int i = k; i < r; i++)
+    for (int i = l+k; i <= r; i++)
     {
         if(arr[i]<pq.top()){
             pq.pop();

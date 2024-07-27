@@ -17,7 +17,7 @@ Explanation: The given tree follows max-heap property since 5,
 is root and it is greater than both its children.
 
 Sol:
-We need check of complete Binary tree and max heap.
+We need check of complete Binary tree and max heap property.
 Apporach:
 To check complete Binary tree:
 1. run a total node counts and index 
