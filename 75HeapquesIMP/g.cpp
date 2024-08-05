@@ -13,7 +13,7 @@ values in the right subtree of the node. This condition is applied to all the no
               2     6
             /  \   /  \
           1   3  5    7  
-Output:  1
+Output:           1
                /   \
              2     5
            /  \   /  \
@@ -30,7 +30,74 @@ steps:
 4.While traversing the root during the preorder traversal, one by one copy the values from the array arr[] 
 to the nodes of the BST.
 */
-int main(){
 
-return 0;
+class Node {
+public:
+    int data;
+    Node* left;
+    Node* right;
+
+    Node(int data) {
+        this->data = data;
+        this->left = NULL;
+        this->right = NULL;
+    }
+};
+
+Node* buildtree() {
+    int data;
+    cout << "Enter data: ";
+    cin >> data;
+    if (data == -1) {
+        return NULL;
+    }
+    Node* root = new Node(data);
+    cout << "Enter the data for left tree of " << data << endl;
+    root->left = buildtree();
+    cout << "Enter the data for right tree of " << data << endl;
+    root->right = buildtree();
+    return root;
+}
+
+void inordertraversal(Node* root, vector<int>& ans) {
+    if (root == NULL) {
+        return;
+    }
+    inordertraversal(root->left, ans);
+    ans.push_back(root->data);
+    inordertraversal(root->right, ans);
+}
+
+void solve(Node* root, vector<int>& inorder, int& index) {
+    if (root == NULL) {
+        return;
+    }
+    root->data = inorder[index];
+    index++;
+    solve(root->left, inorder, index);
+    solve(root->right, inorder, index);
+}
+
+void convertbsttominheap(Node* root) {
+    vector<int> inorder;
+    inordertraversal(root, inorder);
+    int index = 0;
+    solve(root, inorder, index);
+}
+
+void preordertraversal(Node* root) {
+    if (root == NULL) {
+        return;
+    }
+    cout << root->data << " ";
+    preordertraversal(root->left);
+    preordertraversal(root->right);
+}
+
+int main() {
+    Node* root = buildtree();
+    convertbsttominheap(root);
+    cout << "Preorder traversal after converting BST to Min Heap: " << endl;
+    preordertraversal(root);
+    return 0;
 }

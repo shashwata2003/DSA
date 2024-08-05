@@ -32,8 +32,10 @@ int findfreq(vector<int> arr, int n){
     }
     for (int i = 0; i < n; i++)
     {
+        //This is the loop to find the element which has the max freq in the map
         if(maxfreq == mp[arr[i]]){
             maxans = arr[i];
+            break;
         }
     }
     return maxans;

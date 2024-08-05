@@ -82,6 +82,8 @@ int minDistance(string word1, string word2) {
     int n = word1.length();
     int m = word2.length();
     //Using recursion:
+    //Here we are starting from last index hence when n, m == 0 we return m and n resp, but 
+    // if we start from the 0 we need to return n - currindexofword2(j) and m - currenrindexofword1(i)
     // int ans = solveusingrecursion(word1,word2,n,m);
 
     //Using memorization:

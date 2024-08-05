@@ -84,8 +84,10 @@ void calmedian(int element, int &median, priority_queue<int> &maxheap,
                priority_queue<int, vector<int>, greater<int>> &minheap) {
     switch (signum(maxheap.size(), minheap.size())) {
     case 0:
+    //even elements in the arr (as left == right)
         if (element > median) {
             minheap.push(element);
+            //we are directly updating median as after pushing the new element the arr becomes odd
             median = minheap.top();
         } else {
             maxheap.push(element);
@@ -93,10 +95,14 @@ void calmedian(int element, int &median, priority_queue<int> &maxheap,
         }
         break;
     case 1:
+     //odd elements in the arr (as left > right) 
         if (element > median) {
             minheap.push(element);
+            // after push  n+1 n+1 evem
             median = (maxheap.top() + minheap.top()) / 2;
         } else {
+            //we are pushing a element form left to right to balance to tree as currly left is n+1 
+            // and addingone more element will make it a difference of 2 element which we dont want 
             minheap.push(maxheap.top());
             maxheap.pop();
             maxheap.push(element);
@@ -104,6 +110,7 @@ void calmedian(int element, int &median, priority_queue<int> &maxheap,
         }
         break;
     case -1:
+    //odd elements in the arr (as left > right)
         if (element > median) {
             maxheap.push(minheap.top());
             minheap.pop();

@@ -22,11 +22,20 @@ Apporach 1: Brute force method:
 TS: O(n2 * k2)
 
 Apporach 2:
-Basic idea here will be to maintain a min and max value, to do so we will store the one element from each of the
+Basic idea here will be to maintain a min and max value, to do so we will store the first element from each of the
 k arrays, 
-So we will find the min and the max of the k elements stores and store the difference and move the min point to the 
+So we will find the min and the max of the k elements stored and store the difference and move the min point to the 
 next element of that array as we can only update the min not the max as the arrays are sorted
 This way will keep track smallest range 
+eg : {1,10,11} {2,3,20} {5,6,12} first k elem will be {1,2,5} henc the min will be min : 1 max : 5
+Hence we got our first range now we need to find the one with the min difference hence we will try to change
+the min point which is currently point at 1 , take the next element from the array which is 10 hence the 
+k array will we now {10,2,5} new min = 2 max = 10 difference = 8 > 4 (old for 1,5) now again move the min pointe
+from 2 tp next element in the same array ie 3, hence the updated k array will be {10,3,5} min = 3 max = 10 diff
+7. continu till u find the min range
+
+This method ensures that the min and max have a range such that one element form each array is included, we just 
+need to find the one with min difference
 
 TS: O(n*k2)
 SP: O(k)

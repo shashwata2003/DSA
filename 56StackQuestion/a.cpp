@@ -84,7 +84,6 @@ int findlargestarea(vector<int> arr){
         area = max(newarea, area);
     }
     return area;
-    
 }
 
 int main(){
