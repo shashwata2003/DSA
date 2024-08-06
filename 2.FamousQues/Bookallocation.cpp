@@ -4,12 +4,13 @@
 using namespace std;
 /* 
 Code Studio: Book Allocation Problem: 
-We are given a array of size n. In that array it represents each books with no. of pages in it. also we are given 
+We are given a array of size n. In that array it represents each books with no. of pages in it. also we are
+given 
 m = no. of student. we need to assign this book to m students in continuous manner such that all m students get 
 a book. The array may be unstored
 eg: arr=[10,20,30,40] m = 2 and n = 4
 Now this book can be divided in to two parts like {10}{20,30,40},{10,20}{30,40},{10,20,30}{40}
-Now find the sum of each set like: (10,90),(30,70),(60,40) -> max of each set{90,70,60 } -> min of this set {60}
+Now find the sum of each set like: (10,90),(30,70),(60,40) -> max of each set {90,70,60 } -> min of this set {60}
 hence 60 is the ans(This is max no. of pages assigned  to a student is minimum).
 Sol in Note Book 
  */
