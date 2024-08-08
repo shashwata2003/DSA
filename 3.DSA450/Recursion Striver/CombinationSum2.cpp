@@ -63,23 +63,25 @@ void solve(vector<int>& candidates, int target, vector<vector<int>> &ans, int in
     
 }
 
-vector<vector<int>> combinationSum21(vector<int>& candidates, int target) {
+vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
     
     sort(candidates.begin(),candidates.end());
     int i = 0;
     vector<int> temp;
+    vector<vector<int>> ans;
     solve(candidates,target,ans,i,temp);
-    vector<vector<int>> ans = solve(candidates,target,ans,i,temp);
     return ans;
 }
 
 //Using DP:
-
+vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
+    
+}
 
 int main(){
     vector<int> arr = {2,5,2,1,2};
     int n = 5;
-    vector<vector<int>> ans = combinationSum21(arr,n);
+    vector<vector<int>> ans = combinationSum2(arr,n);
     for (int i = 0; i < ans.size(); i++)
     {
         for (int j = 0; j < ans[0].size(); j++)
