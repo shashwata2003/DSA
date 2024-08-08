@@ -96,7 +96,8 @@ bool issafe(int row, int col, vector<vector<int>> &board, int n){
         y--;
     }
     
-    // case 2: check cols: we dont have to check the col as we are backtracking when we move to the next col 
+    // case 2: check cols: we dont have to check the col as we are moving to the next col
+    // after placing a single queen in that col. 
     // hence no two queens will be placed in the same col:
 
     x = row;

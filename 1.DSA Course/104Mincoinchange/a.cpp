@@ -130,7 +130,7 @@ int minimumElements(vector<int> &num, int x)
 
 int main(){
     vector<int> num = {1, 2, 3};
-    int x = 7;
+    int x = 4;
     cout<<minimumElements(num,x);
 return 0;
 }

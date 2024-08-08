@@ -140,7 +140,7 @@ int equalPartition(int N, int arr[])
     int target = sum / 2;
     //Using only recursion:
     int index = 0;
-    // int ans = solveusingrecursion(index,N,arr,target);
+    int ans = solveusingrecursion(index,N,arr,target);
 
     //Using Memorization:
     // vector<vector<int>> dp(N+1,vector<int>(target+1,-1));
