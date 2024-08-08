@@ -63,46 +63,23 @@ void solve(vector<int>& candidates, int target, vector<vector<int>> &ans, int in
     
 }
 
-void solveusingdp(vector<int>& candidates, int target, vector<vector<int>> &ans, int index, vector<int> &temp,vector<int> &dp){
-    if(target == 0){
-        ans.push_back(temp);
-        return;
-    }
-    if(index >= candidates.size() || index < 0){
-        return;
-    }
-    if(dp[index] != -1){
-        
-    }
-    //to remove duplicates:
-    // By using for loop eliminates the use of the not inclu case
-    for (int i = index; i < candidates.size(); i++)
-    {
-        if(i > index && candidates[i] == candidates[i-1]) continue;
-        
-        temp.push_back(candidates[i]);
-        solve(candidates,target - candidates[i],ans,i+1,temp);
-        temp.pop_back();
-    }
+vector<vector<int>> combinationSum21(vector<int>& candidates, int target) {
     
-}
-
-vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
-    vector<vector<int>> ans;
     sort(candidates.begin(),candidates.end());
     int i = 0;
     vector<int> temp;
-    // solve(candidates,target,ans,i,temp);
-    //Using Dp:
-    vector<int> dp(candidates.size(),-1);
-    solveusingdp(candidates,target,ans,i,temp,dp);
+    solve(candidates,target,ans,i,temp);
+    vector<vector<int>> ans = solve(candidates,target,ans,i,temp);
     return ans;
 }
+
+//Using DP:
+
 
 int main(){
     vector<int> arr = {2,5,2,1,2};
     int n = 5;
-    vector<vector<int>> ans = combinationSum2(arr,n);
+    vector<vector<int>> ans = combinationSum21(arr,n);
     for (int i = 0; i < ans.size(); i++)
     {
         for (int j = 0; j < ans[0].size(); j++)
