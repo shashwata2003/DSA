@@ -78,7 +78,7 @@ int main() {
         {3, 4}
     };
 
-    // Get the connected components using DFS
+    // Get the connected components using  DFS
     vector<vector<int>> components = depthFirstSearch(V, E, edges);
 
     // Print the connected components

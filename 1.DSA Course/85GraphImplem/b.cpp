@@ -27,6 +27,8 @@ Sample Output 1:
 
  */
 
+
+// we usually use a unordered map to create a adj list but this is another way of doing it
 vector < vector < int >> printAdjacency(int n, int m, vector < vector < int >> & edges) {
     vector<int> ans[n]; // it stores all the neighbours of a node
     for (int i = 0; i < m; i++)

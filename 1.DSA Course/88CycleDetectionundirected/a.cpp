@@ -94,7 +94,7 @@ bool isCyclicDFS(int start, int parent, unordered_map<int, list<int>>& adj, unor
             }
         }
         else if(i != parent){
-            // satisfices the loop cond that the adj nodes is not a parent 
+            // satisfices the loop cond that the adj nodes is not a parent  
             return true;
         }
     }
