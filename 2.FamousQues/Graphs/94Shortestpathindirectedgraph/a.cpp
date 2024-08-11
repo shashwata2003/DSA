@@ -73,8 +73,8 @@ public:
                 // if the top is not changes from infinity skip it
                 for (auto i : adj[top]){
                     // compare the new distance with the new one, if the new one is smaller update it 
-                    if(dist[top]+ i.second < dist[i.first]){
-                        dist[i.first] = dist[top] + i.second;
+                    if(dist[top]+ i.second< dist[i.first]){
+                        dist[i.first] = dist[top]+ i.second;
                     }
                 }
             }

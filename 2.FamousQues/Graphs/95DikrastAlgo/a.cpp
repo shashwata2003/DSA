@@ -31,7 +31,7 @@ vector<int> dijkstra(vector<vector<int>> &vec, int vertices, int edges, int sour
     for(int i = 0; i < edges; i++){
         int u = vec[i][0];
         int v = vec[i][1];
-        int w = vec[i][2]; 
+        int w = vec[i][2];
 
         // as this is an undirected graph
         adj[u].push_back(make_pair(v, w));

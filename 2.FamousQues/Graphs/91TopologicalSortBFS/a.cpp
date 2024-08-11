@@ -48,7 +48,7 @@ int detectCycleInDirectedGraph(int n, vector<pair<int, int>> &edges) {
   }
   
   int cnt = 0;
-  while (!q.empty()){
+  while (!q.empty()) {
     int front = q.front();
     q.pop();
     cnt++;
