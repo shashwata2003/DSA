@@ -43,7 +43,7 @@ void removezeros(vector<vector<char>> &grid,int row, int col, int n, int m){
     if(row >= n || row < 0 || col >= m || col < 0 || grid == '0'){
         return;
     }
-    grid[row][col] = 0;
+    grid[row][col] = '0';
     removezeros(grid,row+1,col,n,m); //up
     removezeros(grid,row-1,col,n,m); //down
     removezeros(grid,row,col+1,n,m); // right
