@@ -35,8 +35,8 @@ int countisland(vector<vector<int>> arr, int n , int m){
 }
 
 int main(){
-    vector<vector<int>> arr = {{1,1,0,0,0},{1,1,0,0,0},{0,0,1,0,0},{0,0,0,1,1},{0,0,0,1,1}};
-    int n = 5, m = 5;
+    vector<vector<int>> arr = {{1,1,0,0,0},{1,1,0,0,0},{0,0,1,0,0},{0,0,0,1,1}};
+    int n = 2, m = 5;
     cout<<countisland(arr,n,m);
     return 0;
 }
