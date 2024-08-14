@@ -31,7 +31,8 @@ void dfs(int node, int parent, vector<int> &disc, vector<int> &low, unordered_ma
             low[node] = min(low[node], disc[i]);
         }
     }
-    // this handles the speacial case which is different form the previous question:
+    // this handles the speacial case which is different form the previous question: 
+    // This cond is to check weather the parent node is a articulation point or not.
     if(parent == -1 && child > 1){
         ap[node] = 1;
     }

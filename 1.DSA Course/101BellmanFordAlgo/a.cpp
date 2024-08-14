@@ -60,7 +60,7 @@ int bellmonFord(int n, int m, int src,int distination, vector<vector<int>> &edge
            flag = true;
         }
     }
-    if(!flag){
+    if(!flag){//No change in dist
         return dist[distination];
     }
     return -1;
