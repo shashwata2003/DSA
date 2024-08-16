@@ -38,10 +38,10 @@ void unionset(int u, int v, vector<int> &parent, vector<int> &rank){
     u = findParent(parent,u);
     v = findParent(parent,v);
 
-    if(rank[u]<rank[v]){
+    if(rank[u] < rank[v]){
         parent[u] = v;
     }
-    if(rank[u]>rank[v]){
+    if(rank[u] > rank[v]){
         parent[v] = u;
     }else{
         //equal case;
