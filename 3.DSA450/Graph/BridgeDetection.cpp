@@ -52,6 +52,7 @@ void dfs(int node, int &timer, int parent, vector<int> &low, vector<int> &disc, 
             // For every adjacent node, update low and check for bridge
             low[node] = min(low[node], low[i]);
             if (low[i] > disc[node]) {
+                //checking bridge
                 ans.push_back({node, i});
             }
         }
