@@ -10,8 +10,6 @@ Apporach: here we need to divide the problem in three parts:
 1. print all the node of left subtree except the last node.
 2. print all the leaf nodes.
 3. Print all the node of the right subtree except the last node.
-
-
  */
 
 class Node{
