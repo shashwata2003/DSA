@@ -41,7 +41,10 @@ Output: 8
 
 /*
 Steps:
-1. 
+1. convert all the letter in the string to its int vals and store the combined string in numarr
+2. next find the sum of each digit in numarr and update the val of numarr to curr sum 
+3. do this till k == 0
+4. finily convert the ans to int
 
 */
 
