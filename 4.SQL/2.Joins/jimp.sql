@@ -23,10 +23,13 @@ Table: Confirmations
 (user_id, time_stamp) is the primary key (combination of columns with unique values) for this table.
 user_id is a foreign key (reference column) to the Signups table.
 action is an ENUM (category) of the type ('confirmed', 'timeout')
-Each row of this table indicates that the user with ID user_id requested a confirmation message at time_stamp and that confirmation message was either confirmed ('confirmed') or expired without confirming ('timeout').
+Each row of this table indicates that the user with ID user_id requested a confirmation message at time_stamp 
+and that confirmation message was either confirmed ('confirmed') or expired without confirming ('timeout').
  
 
-The confirmation rate of a user is the number of 'confirmed' messages divided by the total number of requested confirmation messages. The confirmation rate of a user that did not request any confirmation messages is 0. Round the confirmation rate to two decimal places.
+The confirmation rate of a user is the number of 'confirmed' messages divided by the total number of requested 
+confirmation messages. The confirmation rate of a user that did not request any confirmation messages is 0. 
+Round the confirmation rate to two decimal places.
 
 Write a solution to find the confirmation rate of each user.
 
@@ -84,7 +87,8 @@ Calculate Confirmations:
 SUM(c.action = 'confirmed'): This counts the number of confirmed messages for each user.
 COUNT(c.user_id): This counts the total number of confirmation messages for each user.
 We divide the number of confirmed messages by the total messages to get the confirmation rate.
-Handle Nulls: IFNULL(..., 0) ensures that if a user has no confirmation messages (i.e., the COUNT(c.user_id) is 0), their confirmation rate is set to 0.00.
+Handle Nulls: IFNULL(..., 0) ensures that if a user has no confirmation messages (i.e., the COUNT(c.user_id) 
+is 0), their confirmation rate is set to 0.00.
 Rounding: We round the result to two decimal places using the ROUND function.
 Group By: We group by s.user_id to aggregate the data by each user.
 */

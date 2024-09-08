@@ -9,9 +9,11 @@ Table: Prices
 | end_date      | date    |
 | price         | int     |
 +---------------+---------+
-(product_id, start_date, end_date) is the primary key (combination of columns with unique values) for this table.
+(product_id, start_date, end_date) is the primary key (combination of columns with unique values) for this 
+table.
 Each row of this table indicates the price of the product_id in the period from start_date to end_date.
-For each product_id there will be no two overlapping periods. That means there will be no two intersecting periods for the same product_id.
+For each product_id there will be no two overlapping periods. That means there will be no two intersecting 
+periods for the same product_id.
  
 
 Table: UnitsSold
@@ -27,7 +29,8 @@ This table may contain duplicate rows.
 Each row of this table indicates the date, units, and product_id of each product sold. 
  
 
-Write a solution to find the average selling price for each product. average_price should be rounded to 2 decimal places.
+Write a solution to find the average selling price for each product. average_price should be rounded to 2 
+decimal places.
 
 Return the result table in any order.
 
@@ -69,16 +72,22 @@ Average selling price for product 1 = ((100 * 5) + (15 * 20)) / 115 = 6.96
 Average selling price for product 2 = ((200 * 15) + (30 * 30)) / 230 = 16.96
 */
 
+/*
+Additionally, for products with no sales, the average price should be 0, 
+so you will need to handle null values using COALESCE.
+*/
+
 SELECT 
-    s.product_id,
-    ROUND(SUM(s.units * p.price) / SUM(s.units), 2) AS average_price
+    p.product_id,
+    COALESCE(ROUND(SUM(s.units * p.price) / SUM(s.units), 2), 0) AS average_price
 FROM 
-    UnitsSold s
-JOIN 
     Prices p
+LEFT JOIN 
+    UnitsSold s 
 ON 
-    s.product_id = p.product_id
+    p.product_id = s.product_id
 AND 
     s.purchase_date BETWEEN p.start_date AND p.end_date
 GROUP BY 
-    s.product_id;
+    p.product_id;
+
