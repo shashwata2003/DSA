@@ -4,6 +4,7 @@
 using namespace std;
 /* 
 Code for Selection sort:
+Moves the smallest element to the start of the array
  */
 int main(){
     int n = 5;

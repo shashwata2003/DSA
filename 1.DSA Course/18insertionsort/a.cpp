@@ -2,7 +2,9 @@
 #include <bits/stdc++.h>
 #include <array>
 using namespace std;
-/* insertion Sort code: */
+/* insertion Sort code: 
+Places the val to the correct postion.
+*/
 int main(){
     int n = 5;
     int arr[n] = {3,2,1,5,4};
