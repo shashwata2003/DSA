@@ -42,6 +42,55 @@ Explanation: Both strings are same.
         return solve(str1, str2, n, m);
     }
 
+
+/*DP implemented*/
+class Solution{
+	private:
+	    int solve(int arr[], int n, int curr, int ans){
+	        if(curr >= n){
+	            return 0;
+	        }
+	        int taken = 0;
+	        if(ans == -1 || arr[curr]>arr[ans]){
+	            taken = arr[curr] + solve(arr,n,curr+1,curr);
+	        }
+	        int nottaken = solve(arr,n,curr+1,ans);
+	        return max(taken,nottaken);
+	    }
+	        int solvetab(int arr[], int n) {
+        // Create DP table
+        vector<vector<int>> dp(n+1, vector<int>(n+1, 0));
+
+        // Traverse in reverse (from last element to the first)
+        for (int curr = n-1; curr >= 0; curr--) {
+            for (int prev = curr-1; prev >= -1; prev--) {
+                int taken = 0;
+                // If prev == -1, no previous element, otherwise ensure arr[curr] > arr[prev]
+                if (prev == -1 || arr[curr] > arr[prev]) {
+                    taken = arr[curr] + dp[curr+1][curr+1];  // Take the current element
+                }
+                int nottaken = dp[curr+1][prev+1];  // Skip the current element
+                
+                // Update DP
+                dp[curr][prev+1] = max(taken, nottaken);
+            }
+        }
+
+        // The answer is in dp[0][0] (start with no previous element)
+        return dp[0][0];
+    }
+
+
+	public:
+	int maxSumIS(int arr[], int n)  
+	{  
+	    int curr = 0;
+	    int ans = -1;
+	    
+	    return solvetab(arr,n);
+	}  
+};
+
 int main(){
     string str1 = "geek";
     string str2 = "gesek";
