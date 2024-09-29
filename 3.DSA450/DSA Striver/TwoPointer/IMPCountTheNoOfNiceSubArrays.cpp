@@ -25,6 +25,8 @@ Input: nums = [2,2,2,1,2,2,1,2,2,2], k = 2
 Output: 16
 */
 
+
+
 /*This is question is exaclty similar to Binary Subarrays With Sum
 Here we will consider a odd num = 1 and even as = 0 and 
 and we need to find the count of subarray which is equal to k  */
