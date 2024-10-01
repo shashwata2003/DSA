@@ -61,3 +61,36 @@ Output 3 :
 3 7
 
 */
+
+#include<iostream>
+#include <bits/stdc++.h>
+#include <array>
+using namespace std;
+/*  */
+int main(){
+    int n;
+    cin>>n;
+    vector<int> arr(n);
+    for(int i = 0; i<n; i++){
+        cin>>arr[i];
+    }
+    int t;
+    cin>>t;
+    sort(arr.begin(),arr.end());
+    int l = 0;
+    int r = n-1;
+    while(l<r){
+        int sum = arr[l] + arr[r];
+        if(sum == t){
+            cout<<arr[l]<<" "<<arr[r];
+            return 0;
+        }
+        if(sum > t){
+            r--;
+        }else{
+            l++;
+        }
+    }
+    cout<<"No";
+return 0;
+}

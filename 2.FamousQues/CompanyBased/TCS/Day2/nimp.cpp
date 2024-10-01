@@ -80,6 +80,42 @@ Output 2 :
 Input 3 :
 5
 5 4 -1 7 8
-Output 3 :
+Output 3:
 23
 */
+
+#include<iostream>
+#include <vector>
+using namespace std;
+
+int main(){
+    int n;
+    cin >> n;
+    vector<int> arr(n);
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    int maxsum = 0, sum = 0;
+    int start = 0, start_idx = 0, end_idx = 0;
+
+    for (int i = 0; i < n; i++) {
+        sum += arr[i];
+
+        if (sum > maxsum) {
+            maxsum = sum;
+            start_idx = start;  // Update start index of max subarray
+            end_idx = i;        // Update end index of max subarray
+        }
+
+        if (sum < 0) {
+            sum = 0;
+            start = i + 1;  // Reset the start for the next potential subarray
+        }
+    }
+
+    cout << "Maximum Sum: " << maxsum << endl;
+    cout << "Subarray Indices: [" << start_idx << ", " << end_idx << "]" << endl;
+
+    return 0;
+}

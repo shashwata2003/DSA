@@ -10,9 +10,6 @@ You are given an array nums consisting of positive integers.
 
 
 We call a subarray of nums nice if the bitwise AND of every pair of elements in different positions is equal to 0. Return the length of the longest nice subarray. A subarray is a contiguous part of an array.
-
-
-
 Note that subarrays of length 1 are always considered nice.
 
 
@@ -101,3 +98,36 @@ Output 2 :
 1
 
 */
+#include<iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> arr(n);
+    
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    int l = 0, andval = 0, maxlen = 1;
+
+    // Sliding window approach
+    for (int r = 0; r < n; r++) {
+        while ((andval & arr[r]) != 0) {
+            // Shrink the window if the AND condition is violated
+            andval ^= arr[l];
+            l++;
+        }
+
+        // Add the new element to the current AND value
+        andval |= arr[r];
+
+        // Update the maximum length of the subarray
+        maxlen = max(maxlen, r - l + 1);
+    }
+
+    cout << maxlen;
+    return 0;
+}

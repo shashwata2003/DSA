@@ -2,38 +2,28 @@
 Problem Statement
 Given an array of positive integer nums and a positive integer target, return the minimal length of a subarray whose sum is greater than or equal to the target. If there is no such subarray, return 0 instead.
 Example 1
-
 Input: 
 7
 6
 2 3 1 2 4 3
 
-Output: 
+Output:
 2
 
 Explanation:
 The subarray [4,3] has a minimal length under the problem constraint.
 
 Example 2
-
 Input:
-
 11
-
 8
-
 1 1 1 1 1 1 1 1
-
-
-
 Output:
-
 0
 
 
 
 Explanation:
-
 In this case, there is no subarray whose sum is at least 11. Thus, the output is 0.
 
 
@@ -109,7 +99,40 @@ Output 3 :
 #include <array>
 using namespace std;
 /*  */
-int main(){
+int main() {
+    int n, t;
+    cin >> t;  // Target sum
+    cin >> n;  // Size of the array
 
-return 0;
+    vector<int> arr(n);
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    int l = 0, r = 0;
+    int sum = 0;
+    int minlen = INT_MAX;
+
+    while (r < n) {
+        sum += arr[r];
+
+        // Shrink the window when sum >= t
+        while (sum >= t) {
+            if (sum == t) {
+                minlen = min(minlen, r - l + 1);
+            }
+            sum -= arr[l];
+            l++;
+        }
+        r++;
+    }
+
+    // If no subarray is found, return -1
+    if (minlen == INT_MAX) {
+        cout << -1;
+    } else {
+        cout << minlen;
+    }
+
+    return 0;
 }
