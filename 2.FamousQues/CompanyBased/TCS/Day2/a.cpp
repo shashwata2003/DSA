@@ -1,19 +1,8 @@
-#include<iostream>
-#include <bits/stdc++.h>
-#include <array>
-using namespace std;
-/*  
+/*
 You will be given an array of integers and a target value. Determine the number of pairs of array elements that have a difference equal to a target value.
-
-
-
 For example, given an array of [1, 2, 3, 4] and a target value of 1, we have three values meeting the condition: 2-1 = 1, 3-2 = 1, and 4-3 = 1.
 
-
-
 Function Description
-
-
 
 Write a function pair. It must return an integer representing the number of element pairs having the required difference.
 
@@ -54,7 +43,42 @@ Input 2 :
 Output 2 :
 3
 */
-int main(){
+/* A sorting based program to count pairs with difference k*/
+#include <iostream>
+#include <algorithm>
+using namespace std;
+ 
+/* Returns count of pairs with difference k in arr[] of size n. */
+int countPairsWithDiffK(int arr[], int n, int k)
+{
+    int count = 0;
+    sort(arr, arr+n);  // Sort array elements
 
-return 0;
+    int l = 0;
+    int r = 0;
+    while(r < n)
+    {
+         if(arr[r] - arr[l] == k)
+        {
+              count++;
+              l++;
+              r++;
+        }
+         else if(arr[r] - arr[l] > k)
+              l++;
+         else // arr[r] - arr[l] < sum
+              r++;
+    }   
+    return count;
+}
+
+// Driver program to test above function
+int main()
+{
+    int arr[] =  {1, 5, 3, 4, 2};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    int k = 3;
+    cout << "Count of pairs with given diff is "
+         << countPairsWithDiffK(arr, n, k);
+    return 0;
 }
